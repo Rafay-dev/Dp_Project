@@ -12,7 +12,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="page-title">
                     <h3>Items List</h3>
-                    
+
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hide">
@@ -33,7 +33,6 @@
         </div>
     </div>
     <!-- Top Bar Ends -->
-
     <!-- Row Starts -->
     <div class="row gutter">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -54,11 +53,11 @@
                                     <th>Size</th>
                                     <th>Style</th>
                                     <th>Weight</th>
+                                    <th>Total Images</th>
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
@@ -87,54 +86,73 @@
         var api_ipAddress = '@System.Configuration.ConfigurationManager.AppSettings["ServiceIPAddress1"]';
         var api_port = '@System.Configuration.ConfigurationManager.AppSettings["ServicePort"]';
 
-        
+
         var totalPics;
 
         // ********************************************************* GET IMAGES TOTAL COUNT
-       
+
 
         $.ajax({
             url: "http://" + api_ipAddress + ":"+api_port+"/getitems?page=0&size=500",
             dataType: "JSON",
             type: "GET",
-            success: function (data) {
-               // var dd = JSON.parse(data).Table[0];
-                console.log(data)
+            success: function (output) {
+               // var dd = JSON.parse(output).Table[0];
+                console.log(output)
                 $("tbody").empty()
-                for (var i = 0; i < data.docs.length; i++) {
-                    
+                var gg = 0;
 
+                $.each(output.docs, function (index) {
+                   // console.log(output.docs[index]._id)
                     $.ajax({
-                        url: "http://" + api_ipAddress + ":" + api_port + "/getitemspictureslist?qrcode=" + data.docs[i]._id,
+                        url: "http://" + api_ipAddress + ":" + api_port + "/getitemspictureslist?qrcode=" + output.docs[index]._id,
                         type: "GET",
                         contentType: "application/json",
-                        dataType: "json",
+                        outputType: "json",
                         success: function (result) {
+                            if (result.length === 0) {
+                                console.log("------------------- GET IMAGES BY QR");
+                                console.log("No Image!");
+                            }
+                            else {
+                                $.each(result, function (ind) {
 
-                            console.log("------------------- GET IMAGES BY QR");
-                            console.log(result);
-                            
+                                    console.log("------------------- GET IMAGES BY QR");
+                                    console.log("Total Images : " + result.length + " - QRCode : " + result[ind].qrcode);
+                                });
+                            }
+                            console.log("------------------- GET DATA BY QR");
+                            console.log("DATA OF QR_CODE : " + output.docs[index]._id)
+
+                            console.log("-------------------------------------");
+
+
+                            $("tbody").append('\
+                            <tr>\
+                                <td>'+ output.docs[index]._id+'</td>\
+                                <td>'+ output.docs[index].color +'</td>\
+                                <td>'+ output.docs[index].composition +'</td>\
+                                <td>'+ output.docs[index].cutablewidth +'</td>\
+                                <td>'+ output.docs[index].fabric +'</td>\
+                                <td>'+ output.docs[index].size + '</td>\
+                                <td>'+ output.docs[index].style + '</td>\
+                                <td>'+ output.docs[index].weight + '</td>\
+                                <td>'+ result.length + '</td>\
+                                <td><a href="/addItems?id='+ output.docs[index]._id +'"><p class="text-center col-fff"><u>View</u></p></a></td>\
+                            </tr>');
+                            if (index === output.docs.length - 1) {
+                                $('#responsiveTable2').DataTable({
+                                    responsive: true,
+                                    'iDisplayLength': 10,
+                                });
+                            }
                         }
                     });
-
-                    $("tbody").append('\
-                                <tr>\
-                                    <td>'+data.docs[i]._id+'</td>\
-                                    <td>'+ data.docs[i].color +'</td>\
-                                    <td>'+ data.docs[i].composition +'</td>\
-                                    <td>'+ data.docs[i].cutablewidth +'</td>\
-                                    <td>'+ data.docs[i].fabric +'</td>\
-                                    <td>'+ data.docs[i].size + '</td>\
-                                    <td>'+ data.docs[i].style + '</td>\
-                                    <td>'+ data.docs[i].weight + '</td>\
-                                    <td><a href="/addItems?id='+ data.docs[i]._id +'"><p class="text-center col-fff"><u>View</u></p></a></td>\
-                                </tr>');
-                }
-
-                $('#responsiveTable2').DataTable({
-                    responsive: true,
-                    'iDisplayLength': 10,
                 });
+                
+                
+
+                
             },
             error: function (err) {
 

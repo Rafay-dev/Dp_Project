@@ -1,1 +1,1 @@
-git push https://Rafay-dev@github.com/Rafay-dev/DenimQRProject
+git push https://Rafay-dotnet@github.com/Rafay-dotnet/DenimExhibitionProject
