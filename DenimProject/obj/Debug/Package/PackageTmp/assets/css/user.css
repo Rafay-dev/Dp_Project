@@ -1,0 +1,76 @@
+﻿.logo_block {
+    display: grid;
+    justify-content: center;
+}
+/** Toggle **/
+.hide{
+    display: none !important;
+}
+/** FLEX ***/
+.d-flex{
+    display: flex !important;
+}
+.d-inflex{
+    display: inline-flex !important
+}
+.jus-cen{
+    justify-content: center !important
+}
+
+/** GRID **/
+.d-grid {
+    display: grid !important;
+}
+.d-in_grid {
+    display: inline-grid !important
+}
+
+/** MARGIN **/
+
+/** PADDING **/
+
+
+/** TEXT **/
+.text-center{
+    text-align: center !important;
+}
+.wd-100p{
+    width: 100% !important;
+}
+.inp-error, .invalid-input {
+    border: 1px solid #f00 !important;
+}
+header > a.logo {
+    text-align: center !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*.col-fff{
+    color: #fff !important;
+}*/
+
+
+
+
+.loadingOverlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(255,255,255,0.8) url("../img/loader.gif") center no-repeat;
+}
+
+body {
+    text-align: center;
+}
+/* Turn off scrollbar when body element has the loading class */
+body.loading {
+    overflow: hidden;
+}
+    /* Make spinner image visible when body element has the loading class */
+    body.loading .loadingOverlay {
+        display: block;
+    }

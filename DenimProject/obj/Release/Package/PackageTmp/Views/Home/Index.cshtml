@@ -1,0 +1,629 @@
+﻿@{
+    ViewBag.Title = "Item Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    label{
+        font-size: 1.3em !important;
+        text-align: right !important;
+        text-transform: capitalize !important;
+    }
+    .itemImageInput {
+        position: relative;
+        top: -2.5em;
+        opacity: 0;
+        width: 7em;
+        padding: 4px;
+        cursor: default;
+    }
+    .addImageDiv{
+        position: relative;
+    }
+    .browseBtn {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .imgUploadBtn {
+        width: 100%;
+        position: relative;
+        top: -3.2em;
+    }
+    .txtPrefix  {
+        position: relative;
+        top: -2em;
+        text-align: center;
+    }
+    
+    /*.imagesBox > .addImageDiv{
+        padding-right: 0;
+    }*/
+    /*.cancelImage{
+        position: absolute;
+        top: 0;
+        right: 3px;
+        cursor: pointer;
+    }
+    .cancelImage span{
+        font-size: 2em;
+    }
+    .cancelImage span:hover{
+        color: #ffffff;
+        text-shadow: 0 10px 10px #000000;
+    }*/
+</style>
+
+<link href="@Url.Content("~/assets/css/gallery.css")" rel="stylesheet" media="screen">
+
+<!-- Container fluid Starts -->
+<div class="container-fluid">
+
+    <!-- Top Bar Starts -->
+    <div class="top-bar clearfix">
+        <div class="row gutter">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="page-title">
+                    <h3>@ViewBag.Title</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar Ends -->
+    
+    <!-- Row Starts -->
+    <div class="row gutter">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2 class="text-center">@ViewBag.Title</h2>
+                </div>
+
+                    <div class="panel-body body1">
+
+                        <form class="form-horizontal" enctype="multipart/form-data" action="/">
+                            <div class="form-group row gutter">
+                                <label class="col-sm-2 control-label">Style</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtStyle" id="txtStyle">
+                                </div>
+                            </div>
+
+                            <div class="form-group row gutter">
+                                <label class="col-sm-2 control-label">Fabric</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtFabric" id="txtFabric">
+                                </div>
+                            </div>
+
+                            <div class="form-group row gutter">
+                                <label class="col-sm-2 control-label">Composition</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtComposition" id="txtComposition" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row gutter">
+                                <label class="col-sm-2 control-label">Cutable Width</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtCutableWidth" id="txtCutableWidth" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row gutter">
+                                <label class="col-sm-2 control-label">Weight</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtWeight" id="txtWeight">
+                                </div>
+                            </div>
+
+                            <div class="form-group row gutter">
+                                <label class="col-sm-2 control-label">Color</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtColor" id="txtColor">
+                                </div>
+                            </div>
+
+                            <div class="form-group row gutter">
+                                <label class="col-sm-2 control-label">Size</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtSize" id="txtSize">
+                                </div>
+                            </div>
+
+                            <div class="form-group row gutter">
+                                <label class="col-sm-2 control-label">Qr Code</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="txtQr" id="txtQr">
+                                </div>
+                            </div>
+
+                            <!--***************************************************************** FOR ADD ITEM BUTTON-->
+                            <div class="form-group row gutter">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-10">
+                                    <input type="submit" class="btn btn-primary wd-100p" id="submitBtn" value="Submit">
+                                </div>
+                            </div>
+
+                            <!--***************************************************************** FOR UPDATE ITEM BUTTON-->
+                            <div class="form-group row gutter">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-10">
+                                    <input type="submit" class="btn btn-primary wd-100p" id="btnFormUpdate" value="Update">
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row gutter">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-4"></div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                  @*PANEL BODY 1 END*@
+    
+
+                <div class="panel-body body2">
+                    <div class="row gutter">
+                        <div class="col-sm-12">
+                            <label class="col-sm-2 control-label">Add Images</label><div class="baguetteBoxThree gallery">
+                                <!-- Images Box start -->
+                                <div class="row gutter imagesBox">
+                                    <div class="col-sm-9" style="padding-left: 0;padding-right: 0;">
+                                    </div>
+                                </div>
+
+
+                            <div class="row addImagesBox" style="margin-top: 2em;">
+                                <label class="col-sm-2 control-label">Add Images</label>
+                                <div class="col-sm-1" style="text-align: center;width: 10%;">
+                                     <img id="uploadedImage" class="uploadedImage" style="width: 7em; " alt="uploadedImage" src="/assets/img/uploadFile.png">
+                                <br>
+                                        <button class="btn btn-warning browseBtn">Browse</button>
+                                        <input type="file" class="btn btn-danger itemImageInput" accept="image/jpeg" onchange="previewFile(this);" autocomplete="off">
+                                        <input class="form-control txtPrefix" list="prefixes" placeholder="Prefix" style="text-align: center;" autocomplete="off">
+                                        <datalist id="prefixes">
+                                            <option value="Front"></option>
+                                            <option value="Back"></option>
+                                            <option value="Side"></option>
+                                        </datalist>
+                                        <br>
+                                        <button class="btn btn-success image-wrapper imgUploadBtn">Upload</button>
+                                    </div></div>
+                                <!-- Images Box End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+    
+    @*<div class="panel-body body2">
+
+                        <div class="form-group row gutter imagesRow">
+                            <label class="col-sm-2 control-label">Add Images</label>
+                            <div class="imagesBox">
+                                <div class="col-sm-1 addImageDiv noImage">
+                                    <img id="uploadedImage" class="uploadedImage" style="width: 7em; " alt="uploadedImage" src="/assets/img/uploadFile.png"><br>
+                                    <button class="btn btn-warning browseBtn">
+                                        Browse
+                                    </button>
+                                    <input type="file" class="btn btn-danger itemImageInput" accept="image/jpeg" onchange="previewFile(this);">
+
+                                    <input class="form-control txtPrefix" list="prefixes" placeholder="Prefix" style="text-align: center;">
+                                    <datalist id="prefixes">
+                                        <option value="Front">
+                                        <option value="Back">
+                                        <option value="Side">
+                                    </datalist>
+                                    <br />
+                                    <button class="btn btn-success image-wrapper imgUploadBtn">Upload</button>
+                                    @*<div class="cancelImage hide">
+                    <span class="icon-cancel2"></span>
+                </div>
+                                </div>
+                            </div>
+                           
+                        </div>*@
+
+
+
+                        @*<!-- Row Start --><div class="row gutter">
+                            <div class="col-lg-12 col-md-12 col-sx-12 col-sm-12">
+                                <!-- Gallery starts -->
+                                <div class="baguetteBoxThree gallery">
+                                    <!-- Row starts -->
+                                    <div class="row gutter">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                            <a href="assets/img/thumbs/lg-one.jpg" class="effects">
+                                                <img src="assets/img/thumbs/lg-one.jpg" class="img-responsive" alt="Arise Admin">
+                                                <div class="overlay">
+                                                    <span class="expand">+</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Row End -->*@
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Row Ends -->
+</div>
+<!-- Container fluid ends -->
+
+<script>
+
+    // ************************************************************* Image Uploading
+
+    function previewFile(input) {
+
+        var file = $(input).get(0).files[0];
+
+        var fileName = $(input).get(0).files[0].name;
+        console.log(fileName);
+
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                $(input).closest(".addImagesBox").find(".uploadedImage").attr("src", reader.result);
+                $(input).closest(".addImagesBox").removeClass("noImage")
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+    // ************************************************************* Image Uploading END
+    $(document).ready(function () {
+
+
+
+        // *********************************** API IP & PORT (Required on All Pages)
+        var api_ipAddress = '@System.Configuration.ConfigurationManager.AppSettings["ServiceIPAddress1"]';
+        var api_port = '@System.Configuration.ConfigurationManager.AppSettings["ServicePort"]';
+        //$(".body2").css("display", "none");
+
+
+        //$(".cancelImage span").click(function () {
+        //    $(this).closest(".addImageDiv").find(".uploadedImage").attr("src", "/assets/img/uploadFile.png");
+        //    $(this).closest(".addImageDiv").find(".cancelImage").addClass("hide")
+
+        //    $(this).closest(".addImageDiv.noImage").unwrap();
+
+        //});
+
+        $("input").prop("autocomplete", "off");
+        var newImageBody;
+
+
+        // **************************************** IMAGE UPLOAD CODE
+
+        $(document).on("click", ".imgUploadBtn", function () {
+
+
+
+            var fileName = $(this).closest(".addImagesBox").find("input[type=file]").get(0).files[0].name;
+            var imageFile = $(this).closest(".addImagesBox").find("input[type=file]").get(0).files[0];
+            var imageType = $(this).closest(".addImagesBox").find("input[type=file]").get(0).files[0].type;
+            var fileExtension = fileName.replace(/^.*\./, '');
+
+            var imageData = {};
+            var qrcode = $("#txtQr").val();
+            var prefix = $(this).closest(".addImagesBox").find(".txtPrefix").val();
+            var imageformat = imageType;
+            var itempicture = imageFile;
+
+            var formData = new FormData();
+            formData.append("qrcode", qrcode)
+            formData.append("prefix", prefix)
+            formData.append("imageformat", fileExtension)
+            formData.append("itempicture", itempicture)
+
+            console.log(formData);
+
+            $.ajax({
+                url: "http://" + api_ipAddress + ":" + api_port +"/uploaditempicture",
+                type: "POST",
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (data) {
+
+                    console.log("Success");
+                    console.log(data);
+
+                    swal({
+                        title: "Image Uploaded!",
+                        icon: "success",
+                        showConfirmButton: false,
+                        time: 5000
+                    });
+
+                    var query = window.location.search.substring(1);
+                    var vars = query.split("=");
+                    var urlID = vars[1];
+                    if (vars != "") {
+                        window.location.reload();
+                    }
+
+                }, error: function (err) {
+                    console.log(err)
+                    swal({
+                        title: "Not Uploaded!",
+                        text: JSON.stringify(err.responseText),
+                        icon: "error",
+                        showConfirmButton: false,
+                        time: 5000
+                    });
+                }
+            });
+
+        });
+        $(document).on("change", "input[type=file]", function () {
+
+            newImageBody = $(this).closest(".addImagesBox").prop('outerHTML');
+
+            var fileName = $(this).get(0).files[0].name;
+            var imageFile = $(this).get(0).files[0];
+            var imageType = $(this).get(0).files[0].type;
+            console.log(imageFile);
+
+            if (fileName != "uploadFile.png") {
+                var imageData = {};
+            }
+
+
+        });
+
+        // **************************************** IMAGE UPLOAD CODE END
+
+
+        // Check If Id Exists In URL
+        var query = window.location.search.substring(1);
+        var vars = query.split("=");
+        var urlID = vars[1];
+        if (vars == "") {
+
+            $("#btnFormUpdate").closest(".form-group").remove();
+            $(".baguetteBoxThree.gallery").prev().remove();
+        // ************************************************** ADD ITEM DETAILS
+
+           $(".body2").hide();
+
+
+            //$("#txtStyle").val("txtStyle");
+            //$("#txtFabric").val("txtFabric");
+            //$("#txtComposition").val("txtComposition");
+            //$("#txtCutableWidth").val("txtCutableWidth");
+            //$("#txtWeight").val("txtWeight");
+            //$("#txtColor").val("txtColor");
+            //$("#txtSize").val("txtSize");
+
+            $("form").on('submit', (function (e) {
+                e.preventDefault();
+
+                $("form input").removeClass("inp-error");
+
+                if (($("#txtStyle").val() == "")) {
+                    $("#txtStyle").addClass("inp-error");
+                }
+                else if ($("#txtFabric").val() == "") {
+                    $("#txtFabric").addClass("inp-error");
+                }
+                else if ($("#txtQr").val() == "") {
+                    $("#txtQr").addClass("inp-error");
+                }
+
+
+                if ($("form input").hasClass("inp-error")) {
+                    swal("Error!", "Field is empty", {
+                        icon: "error"
+                    });
+                    $(this).focus();
+                } // IF NO INPUT ERROR THEN
+                else {
+                    var saveData = {};
+
+                    saveData.qrcode = $("#txtQr").val();
+                    saveData.style = $("#txtStyle").val();
+                    saveData.fabric = $("#txtFabric").val();
+                    saveData.composition = $("#txtComposition").val();
+                    saveData.cutablewidth = $("#txtCutableWidth").val();
+                    saveData.weight = $("#txtWeight").val();
+                    saveData.color = $("#txtColor").val();
+                    saveData.size = $("#txtSize").val();
+                    console.log(saveData)
+
+                    $.ajax({
+
+                        url: "http://" + api_ipAddress + ":" + api_port +"/newitem",
+                        type: "POST",
+                        data: JSON.stringify(saveData),
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function (data) {
+
+                            console.log(data);
+                            swal({
+                                title: "Successful!",
+                                text: "Data Save Successfully!",
+                                icon: "success",
+                                showConfirmButton: false,
+                                time: 5000
+                            });
+
+                            $(".body1").hide("200");
+                            $(".body2").show("600");
+
+                        }, error: function (err) {
+
+                            console.log(err)
+
+                            swal("Error!", JSON.stringify(err.responseText), {
+                                icon: "error",
+                                buttons: {
+                                    confirm: {
+                                        className: 'btn btn-danger'
+                                    }
+                                },
+                            });
+
+                        }
+                    });
+                }
+            }));
+        }
+        else {
+            // GET ITEM DETAILS
+            $("#submitBtn").closest(".form-group").remove();
+
+            // -------------------------------------------------------- UPDATE FORM DATA
+            $("form").on('submit', (function (e) {
+                e.preventDefault();
+
+                $("form input").removeClass("inp-error");
+
+                if (($("#txtStyle").val() == "")) {
+                    $("#txtStyle").addClass("inp-error");
+                }
+                else if ($("#txtFabric").val() == "") {
+                    $("#txtFabric").addClass("inp-error");
+                }
+                else if ($("#txtQr").val() == "") {
+                    $("#txtQr").addClass("inp-error");
+                }
+                if ($("#form input").hasClass("inp-error")) {
+                    swal("Error!", "Field is empty", {
+                        icon: "error"
+                    });
+                    $(this).focus();
+                } // IF NO INPUT ERROR THEN
+                else {
+                    var updateData = {};
+
+                    updateData.qrcode = $("#txtQr").val();
+                    updateData.style = $("#txtStyle").val();
+                    updateData.fabric = $("#txtFabric").val();
+                    updateData.composition = $("#txtComposition").val();
+                    updateData.cutablewidth = $("#txtCutableWidth").val();
+                    updateData.weight = $("#txtWeight").val();
+                    updateData.color = $("#txtColor").val();
+                    updateData.size = $("#txtSize").val();
+                    console.log(updateData)
+
+                    $.ajax({
+                        url: "http://" + api_ipAddress + ":" + api_port +"/updateitem",
+                        type: "POST",
+                        data: JSON.stringify(updateData),
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function (data) {
+
+                            console.log(data);
+                            swal({
+                                title: "Successful!",
+                                text: "Data Updated Successfully!",
+                                icon: "success",
+                                showConfirmButton: false,
+                                time: 5000
+                            });
+
+
+                        }, error: function (err) {
+
+                            console.log(err)
+
+                            swal({
+                                title: "Error!",
+                                text: "Data Not Updated! See Console",
+                                icon: "error",
+                                showConfirmButton: false,
+                                time: 5000
+                            });
+
+                        }
+                    });
+                }
+            }));
+
+            $.ajax({
+                url: "http://" + api_ipAddress + ":" + api_port +"/finditem?qrcode=" + urlID,
+                type: "GET",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (result) {
+
+                    console.log("------------------- GET DATA BY ID");
+                    console.log(result);
+
+                    $("#txtStyle").val(result.data.style);
+                    $("#txtFabric").val(result.data.fabric);
+                    $("#txtComposition").val(result.data.composition);
+                    $("#txtCutableWidth").val(result.data.cutablewidth);
+                    $("#txtWeight").val(result.data.weight);
+                    $("#txtColor").val(result.data.color);
+                    $("#txtSize").val(result.data.size);
+                    $("#txtQr").val(result.data._id);
+
+                    // ********************************************** GETTING PICTURES
+                    $.ajax({
+                        url: "http://" + api_ipAddress + ":" + api_port +"/getitemspictureslist?qrcode=" + urlID,
+                        type: "GET",
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function (result) {
+
+                            console.log("------------------- GET IMAGES BY QR");
+                            console.log(result);
+
+                            for (var i = 0; i < result.length; i++) {
+                                $(".body2").find(".imagesBox .col-sm-9").prepend('\
+                                    <div class="col-sm-2" style="padding-left: 2px;padding-right: 2px;"">\
+                                        <a href="'+ result[i].url+'" class="effects">\
+                                            <img src="'+ result[i].url + '" class="img-responsive" alt="' + result[i].url +'">\
+                                            <div class="overlay">\
+                                                <span class="expand">+</span>\
+                                            </div>\
+                                        </a>\
+                                    <input type="text" class="form-control txtPrefix2 text-center" value="' + result[i].desc +'" style="top: -0.5em;" disabled>\
+                                    </div>');
+                            }
+
+                        }, error: function (err) {
+                            console.log(err.responseText)
+                            swal({
+                                title: "Error!",
+                                text: "Cannot Get Images! See Console.",
+                                icon: "error",
+                                showConfirmButton: false,
+                                time: 5000
+                            });
+                        }
+                    });
+                }, error: function (err) {
+                    console.log(err.responseText)
+                    swal({
+                        title: "Error!",
+                        text: "Cannot Get Data! See Console.",
+                        icon: "error",
+                        showConfirmButton: false,
+                        time: 5000
+                    });
+                }
+            });
+        }
+    });
+</script>
+	<!-- Gallery JS -->
+<script src="@Url.Content("~/assets/js/gallery/baguetteBox.js")" async></script>
+<script src="@Url.Content("~/assets/js/gallery/plugins.js")" async></script>
+<script src="@Url.Content("~/assets/js/gallery/custom-gallery.js")" async></script>
+
+<!-- Custom JS -->
+<script src="@Url.Content("~/assets/js/custom.js")"></script>

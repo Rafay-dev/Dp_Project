@@ -1,0 +1,50 @@
+﻿.logo_block {
+    display: grid;
+    justify-content: center;
+}
+/** Toggle **/
+.hide{
+    display: none !important;
+}
+/** FLEX ***/
+.d-flex{
+    display: flex !important;
+}
+.d-inflex{
+    display: inline-flex !important
+}
+.jus-cen{
+    justify-content: center !important
+}
+
+/** GRID **/
+.d-grid {
+    display: grid !important;
+}
+.d-in_grid {
+    display: inline-grid !important
+}
+
+/** MARGIN **/
+
+/** PADDING **/
+
+
+/** TEXT **/
+.text-center{
+    text-align: center !important;
+}
+.wd-100p{
+    width: 100% !important;
+}
+.inp-error, .invalid-input {
+    border: 1px solid #f00 !important;
+}
+header > a.logo {
+    text-align: center !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*.col-fff{
+    color: #fff !important;
+}*/

@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "ListUserItems";
+}
+
+<!-- Container fluid Starts -->
+<div class="container-fluid">
+
+    <!-- Top Bar Starts -->
+    <div class="top-bar clearfix">
+        <div class="row gutter">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="page-title">
+                    <h3>Items List</h3>
+                    
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hide">
+                <ul class="right-stats" id="mini-nav-right">
+                    <li>
+                        <a href="javascript:void(0)" class="btn btn-danger"><span>76</span>Sales</a>
+                    </li>
+                    <li>
+                        <a href="tasks.html" class="btn btn-success">
+                            <span>18</span>Tasks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="btn btn-info"><i class="icon-download6"></i> Export</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar Ends -->
+
+    <!-- Row Starts -->
+    <div class="row gutter">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-blue">
+                <div class="panel-heading hide">
+                    <h4>Responsive Table</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="responsiveTable2" class="table table-striped table-bordered no-margin" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Color</th>
+                                    <th>Composition</th>
+                                    <th>Cutable Width</th>
+                                    <th>Fabric</th>
+                                    <th>Size</th>
+                                    <th>Style</th>
+                                    <th>Weight</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row Ends -->
+</div>
+<!-- Container fluid ends -->
+
+
+<script>
+    $(document).ready(function () {
+
+        // *********************************** API IP & PORT (Required on All Pages)
+        var api_ipAddress = '@System.Configuration.ConfigurationManager.AppSettings["ServiceIPAddress1"]';
+        var api_port = '@System.Configuration.ConfigurationManager.AppSettings["ServicePort"]';
+
+        $.ajax({
+            url: "http://" + api_ipAddress + ":"+api_port+"/getitems?page=0&size=100",
+            dataType: "JSON",
+            type: "GET",
+            success: function (data) {
+               // var dd = JSON.parse(data).Table[0];
+                console.log(data)
+                $("tbody").empty()
+                for (var i = 0; i < data.docs.length; i++) {
+                    console.log(data.docs[i].style)
+
+                    $("tbody").append('\
+                                <tr>\
+                                    <td>'+data.docs[i]._id+'</td>\
+                                    <td>'+ data.docs[i].color +'</td>\
+                                    <td>'+ data.docs[i].composition +'</td>\
+                                    <td>'+ data.docs[i].cutablewidth +'</td>\
+                                    <td>'+ data.docs[i].fabric +'</td>\
+                                    <td>'+ data.docs[i].size + '</td>\
+                                    <td>'+ data.docs[i].style + '</td>\
+                                    <td>'+ data.docs[i].weight + '</td>\
+                                    <td><a href="/addItems?id='+ data.docs[i]._id +'"><p class="text-center col-fff"><u>View</u></p></a></td>\
+                                </tr>');
+                }
+
+                $('#responsiveTable2').DataTable({
+                    responsive: true,
+                    'iDisplayLength': 10,
+                });
+            },
+            error: function (err) {
+
+                console.log(err.responseText)
+                swal({
+                    title: "Error!",
+                    text: "Cannot Get Data! See Console.",
+                    icon: "error",
+                    showConfirmButton: false,
+                    time: 5000
+                });
+            }
+        });
+        // Responsive Table
+    });
+
+</script>
