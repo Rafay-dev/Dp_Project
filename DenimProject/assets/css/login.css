@@ -15,20 +15,20 @@ body, html {
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	font: normal 15px 'ubuntu', arial, sans-serif;
-	line-height: 18px;
-	color: #fff;
-	height: 100%;
-	background: #47759e; /* Old browsers */
-	background: -moz-radial-gradient(center, ellipse cover,  #BF7A6A 0%, #081F33 100%); /* FF3.6+ */
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#BF7A6A), color-stop(100%,#081F33)); /* Chrome,Safari4+ */
-	background: -webkit-radial-gradient(center, ellipse cover,  #BF7A6A 0%,#081F33 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-radial-gradient(center, ellipse cover,  #BF7A6A 0%,#081F33 100%); /* Opera 12+ */
-	background: -ms-radial-gradient(center, ellipse cover,  #BF7A6A 0%,#081F33 100%); /* IE10+ */
-	background: radial-gradient(ellipse at center,  #BF7A6A 0%,#081F33 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BF7A6A', endColorstr='#081F33',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    margin: 0;
+    padding: 0;
+    font: normal 15px 'ubuntu', arial, sans-serif;
+    line-height: 18px;
+    color: #fff;
+    height: 100%;
+    background: #47759e; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #BF7A6A 0%, #081F33 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#BF7A6A), color-stop(100%,#081F33)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, #BF7A6A 0%,#081F33 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, #BF7A6A 0%,#081F33 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, #BF7A6A 0%,#081F33 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center, #325680 0%,#081F33 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BF7A6A', endColorstr='#081F33',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .clearfix:before,
 .clearfix:after{
@@ -62,7 +62,7 @@ h5{
 #top_header {
 	width: 100%;
 	margin: 0;
-	padding-top: 35px;
+	padding-top: 20px;
 	text-align: center;
 }
 
@@ -135,26 +135,27 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 }
 
 input[type=submit] {
-	color: #fff;
-	font-size: 18px;
-	background-color: #fff;
-	background-color: #BF7A6A;
-	border: 0;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	transition: all .2s ease;
-	cursor: pointer;
-	width: 270px;
-	height: 48px;
-	margin: 0 auto;
-	display: block;
-	margin-bottom: 10px;
-	padding: 15px;
+    color: #fff;
+    font-size: 18px;
+    /*background-color: #fff;
+    background-color: #325680;*/
+    background: radial-gradient(ellipse at center, #325680 0%,#081F33 200%) !important;
+    border: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    transition: all .2s ease;
+    cursor: pointer;
+    width: 270px;
+    height: 48px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px;
 }
 
 input[type=submit]:hover {
-	background-color: #D2A968;
+	background-color: #000;
 	color: #fff;
 }
 input[type=submit]:focus {
@@ -273,4 +274,187 @@ input[type=submit]:focus {
 }
 .or {
 	color: #353C48;
+}
+/******** MARGIN **********/
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.ml-15 {
+    margin-left: 15px;
+}
+
+.mr-15 {
+    margin-right: 15px;
+}
+
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+/******** PADDING **********/
+.pt-5 {
+    padding-top: 5px;
+}
+
+.pb-5 {
+    padding-bottom: 5px;
+}
+
+.pl-5 {
+    padding-left: 5px;
+}
+
+.pr-5 {
+    padding-right: 5px;
+}
+
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.pl-10 {
+    padding-left: 10px;
+}
+
+.pr-10 {
+    padding-right: 10px;
+}
+
+
+.pt-15 {
+    padding-top: 15px;
+}
+
+.pb-15 {
+    padding-bottom: 15px;
+}
+
+.pl-15 {
+    padding-left: 15px;
+}
+
+.pr-15 {
+    padding-right: 15px;
+}
+
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.pl-20 {
+    padding-left: 20px;
+}
+
+.pr-20 {
+    padding-right: 20px;
+}
+
+/*****************************************************************/
+.logo_img {
+    width: 5em !important;
+    padding-bottom: 20px;
+}
+.btnStyle {
+    color: #fff;
+    font-size: 18px;
+    background: radial-gradient(ellipse at center, #487487 0%,#081F33 200%) !important;
+    border: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    transition: all .2s ease;
+    cursor: pointer;
+    width: 270px;
+    height: 48px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+}
+    .btnStyle:hover {
+        background-color: #000 !important;
+        cursor: pointer;
+    }
+.hide{
+    display: none !important;
+}
+.text-red {
+    color: #BF7A6A;
+}
+.text-green {
+    color: #A9BD7A;
+}
+.text-black {
+    color: #000 !important;
+}
+.text-center {
+    text-align: center !important;
 }

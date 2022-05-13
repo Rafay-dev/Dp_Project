@@ -27,9 +27,22 @@ namespace DenimProject
 
 
             routes.MapRoute(
+                name: "Login",
+                url: "login",
+                defaults: new { controller = "Home", action = "Login" }
+            );
+
+
+            routes.MapRoute(
+                name: "Signup",
+                url: "signup",
+                defaults: new { controller = "Home", action = "Signup" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "ListUserItems", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Login", id = UrlParameter.Optional }
             );
 
         }

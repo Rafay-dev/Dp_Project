@@ -542,7 +542,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2022 16:08:15</publishTime>
     </File>
     <File Include="assets/css/user.css">
-      <publishTime>04/13/2022 22:35:33</publishTime>
+      <publishTime>04/14/2022 16:54:52</publishTime>
     </File>
     <File Include="assets/css/users.css">
       <publishTime>04/09/2022 16:08:15</publishTime>
@@ -768,6 +768,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="assets/img/like-arise-dashboard.jpg">
       <publishTime>04/09/2022 16:08:15</publishTime>
+    </File>
+    <File Include="assets/img/loader.gif">
+      <publishTime>04/14/2022 16:49:24</publishTime>
     </File>
     <File Include="assets/img/logo.png">
       <publishTime>04/09/2022 16:08:15</publishTime>
@@ -1424,10 +1427,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2022 15:30:28</publishTime>
     </File>
     <File Include="bin/DenimProject.dll">
-      <publishTime>04/14/2022 16:19:11</publishTime>
+      <publishTime>04/18/2022 17:48:48</publishTime>
     </File>
     <File Include="bin/DenimProject.pdb">
-      <publishTime>04/14/2022 16:19:11</publishTime>
+      <publishTime>04/18/2022 17:48:48</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>12/01/2016 05:07:42</publishTime>
@@ -1595,13 +1598,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2022 15:31:58</publishTime>
     </File>
     <File Include="Controllers/HomeController.cs">
-      <publishTime>04/12/2022 21:27:35</publishTime>
+      <publishTime>04/16/2022 12:52:55</publishTime>
     </File>
     <File Include="DenimProject.csproj">
-      <publishTime>04/14/2022 16:19:07</publishTime>
+      <publishTime>04/14/2022 16:49:47</publishTime>
     </File>
     <File Include="DenimProject.csproj.user">
-      <publishTime>04/14/2022 16:19:07</publishTime>
+      <publishTime>04/18/2022 17:48:44</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>04/09/2022 15:30:25</publishTime>
@@ -1793,16 +1796,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2022 15:30:25</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/14/2022 15:59:02</publishTime>
+      <publishTime>04/16/2022 13:48:59</publishTime>
     </File>
     <File Include="Views/Home/ListUserItems.cshtml">
-      <publishTime>04/14/2022 15:55:23</publishTime>
+      <publishTime>04/18/2022 15:43:55</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/09/2022 15:30:25</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/14/2022 15:52:03</publishTime>
+      <publishTime>04/14/2022 16:47:44</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>04/09/2022 15:30:25</publishTime>
@@ -1811,7 +1814,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2022 15:30:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/14/2022 16:19:15</publishTime>
+      <publishTime>04/18/2022 17:49:03</publishTime>
     </File>
     <File Include="Web.Debug.config">
       <publishTime>04/09/2022 15:30:25</publishTime>
