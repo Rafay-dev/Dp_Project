@@ -14,6 +14,16 @@ namespace DenimProject
                       "~/Scripts/bootstrap.js"));
 
 
+            bundles.Add(new ScriptBundle("~/bundles/login_scripts").Include(
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/bootstrap.min.js",
+                        "~/assets/js/scrollup/jquery.scrollUp.js",
+                        "~/assets/js/bsvalidator/bootstrapValidator.js",
+                        "~/assets/js/bsvalidator/custom-validations.js",
+                        "~/assets/js/user.js",
+                        "~/assets/js/custom.js",
+                        "~/assets/js/sweetalert.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/layout_scripts").Include(
                         "~/assets/js/scrollup/jquery.scrollUp.js",
                         "~/assets/js/bsvalidator/bootstrapValidator.js",
@@ -40,6 +50,14 @@ namespace DenimProject
                       "~/assets/css/datatables/autoFill.bs.min.css",
                       "~/assets/css/datatables/fixedHeader.bs.min.css"
                       ));
+            bundles.Add(new StyleBundle("~/Content/login_css").Include(
+                "~/Content/bootstrap.min.css",
+                "~/Content/main.css",
+                "~/Content/font-awesome.css",
+                "~/assets/css/login.css",
+                "~/assets/css/animate.css",
+                "~/assets/fonts/icomoon/icomoon.css"
+                ));
 
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //            "~/Scripts/jquery.validate*"));

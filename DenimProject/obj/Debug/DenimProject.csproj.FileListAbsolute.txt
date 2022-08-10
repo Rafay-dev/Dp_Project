@@ -64,4 +64,6 @@ H:\IngeniousProjects\DenimProject\DenimProject\DenimProject\bin\Microsoft.AI.Win
 H:\IngeniousProjects\DenimProject\DenimProject\DenimProject\bin\Microsoft.AI.Web.xml
 H:\IngeniousProjects\DenimProject\DenimProject\DenimProject\obj\Debug\DenimProject.dll
 H:\IngeniousProjects\DenimProject\DenimProject\DenimProject\obj\Debug\DenimProject.pdb
-H:\IngeniousProjects\DenimProject\DenimProject\DenimProject\obj\Debug\DenimProject.csprojResolveAssemblyReference.cache
+H:\IngeniousProjects\DenimProject\DenimProject\DenimProject\obj\Debug\DenimProject.csprojAssemblyReference.cache
+H:\IngeniousProjects\DenimProject\DenimProject\DenimProject\obj\Debug\DenimProject.csproj.CoreCompileInputs.cache
+H:\IngeniousProjects\DenimProject\DenimProject\DenimProject\obj\Debug\DenimProject.csproj.CopyComplete

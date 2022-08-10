@@ -35,9 +35,6 @@ namespace DenimProject.Controllers
         {
             return View();
         }
-        public ActionResult Signup()
-        {
-            return View();
-        }
+        
     }
 }

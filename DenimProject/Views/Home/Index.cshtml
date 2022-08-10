@@ -416,7 +416,7 @@
                 console.log(formData);
 
                 $.ajax({
-                    url: "http://222/" + api_ipAddress + ":" + api_port + "/uploaditempicture",
+                    url: "http://" + api_ipAddress + ":" + api_port + "/uploaditempicture",
                     type: "POST",
                     contentType: false,
                     processData: false,
@@ -426,12 +426,12 @@
                         console.log("Success");
                         console.log(data);
 
-                        swal({
-                            title: "Image Uploaded!",
-                            icon: "success",
-                            showConfirmButton: false,
-                            time: 5000
-                        });
+                        //swal({
+                        //    title: "Image Uploaded!",
+                        //    icon: "success",
+                        //    showConfirmButton: false,
+                        //    time: 5000
+                        //});
 
                         var query = window.location.search.substring(1);
                         var vars = query.split("=");

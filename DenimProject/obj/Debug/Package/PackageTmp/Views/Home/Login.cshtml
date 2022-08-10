@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="@Url.Content("~/assets/img/fav.png")">
+    <title>Login</title>
+
+    @Styles.Render("~/Content/login_css")
+   
+    <style>
+        .signup_fields {
+            display: none ;
+        }
+    </style>
+</head>
+<body>
+    <form id="wrapper">
+        <div id="box" class="animated bounceIn">
+            <div id="top_header">
+                <img class="logo_img" src="@Url.Content("~/assets/img/DP-logo1.png")" alt="Logo Image" />
+            </div>
+            <div id="inputs" class="login_fields">
+                <div class="form-block">
+                    <input type="text" placeholder="User Name">
+                    <i class="icon-user-check"></i>
+                </div>
+                <div class="form-block">
+                    <input type="password" placeholder="Password">
+                    <i class="icon-eye4"></i>
+                </div>
+                <input class="btn1" type="submit" value="Sign In">
+                <p class="text-black text-center">Sign Up Here!</p>
+                <input class="btn2 btnStyle"  value="Sign Up">
+            </div>
+
+            <div id="inputs" class="signup_fields">
+                <div class="form-block">
+                    <input type="text" placeholder="User Name">
+                    <i class="icon-user"></i>
+                </div>
+                <div class="form-block">
+                    <input type="email" placeholder="Email">
+                    <i class="icon-at"></i>
+                </div>
+                <div class="form-block">
+                    <input type="password" placeholder="Password">
+                    <i class="icon-eye4"></i>
+                </div>
+
+                <div class="form-block">
+                    <input class="btn1" type="submit" value="Sign Up">
+                    <p class="text-black text-center">Already have an account.<br /><b>Login Now</b></p>
+                    <input class="btn3 btnStyle" value="Sign In">
+                    </div>
+                </div>
+
+        
+        </div>
+    </form>
+</body>
+</html>
+
+@Scripts.Render("~/bundles/login_scripts")
+<script>
+    $(document).ready(function () {
+        function showHideFields(class1, class2) {
+            $(class1).hide(500)
+            $(class2).show(800)
+        }
+        $(".btn2").click(function () {
+            showHideFields(".login_fields", ".signup_fields")
+        })
+
+
+        $(".btn3").click(function () {
+            showHideFields(".signup_fields", ".login_fields")
+        })
+
+        
+    })
+</script>
